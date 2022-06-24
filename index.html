@@ -10,13 +10,14 @@
     <script src="https://unpkg.com/vue@3"></script>
     <div id="app">{{text}}</div>
         <script>
-            Vue.createApp({
+            const mv = Vue.createApp({
                 data(){
                     return{
                         text: "Hola vue"
                     };
                 }
             }).mount("#app");
+            console.log(mv);
         </script>
 </body>
 </html>
