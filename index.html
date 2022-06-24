@@ -8,14 +8,18 @@
 </head>
 <body>
     <script src="https://unpkg.com/vue@3"></script>
-    <div id="app">{{text}}</div>
+    <div id="app"></div>
         <script>
             const mv = Vue.createApp({
                 data(){
                     return{
                         text: "Hola vue"
                     };
-                }
+                },
+                /*  v-once permite dejar estatico un texto en consola
+                    v-text permite variar el texto en consola
+                */
+                template: `<div v-text="text">  </div>`
             }).mount("#app");
             console.log(mv);
         </script>
