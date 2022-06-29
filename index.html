@@ -15,14 +15,28 @@
             const mv = Vue.createApp({
                 data(){
                     return{
-                        attr: "src",
-                        img: "https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ"
+                        counter: 0,
                     };
+                },
+                methods:{
+                    increment(){
+                        this.counter++;
+                    },
+                    decrement(){
+                        this.counter--;
+                    }
                 },
                 /*  v-once permite dejar estatico un texto en consola
                     v-text permite variar el texto en consola
                 */
-                template: `<img v-bind:["attr"]="img">`
+                template: `
+                    <button v-on:click="increment">
+                        +
+                    </button>
+                    <button v-on:click="decrement">
+                        -
+                    </button><br>
+                {{counter}}`
             }).mount("#app");
             console.log(mv);
         </script>
