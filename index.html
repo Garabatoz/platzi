@@ -9,36 +9,37 @@
 <body>
     <script src="https://unpkg.com/vue@3"></script>
     <div id="app">
-        <img src="" alt=""/>
+        <img src="" alt="">
     </div>
-        <script>
-            const mv = Vue.createApp({
-                data(){
-                    return{
-                        counter: 0,
-                    };
-                },
-                methods:{
-                    increment(){
-                        this.counter++;
-                    },
-                    decrement(){
-                        this.counter--;
+    <script>
+        const vm = Vue.createApp({
+            data(){
+                return{
+                    text: "Puerta cerrada",
+                    open: false
+                };
+            },
+            watch:{
+                //Value: Se utiliza para llamar el texto actual
+                //Old: Se utiliza para llamar el texto anterior
+                    open(value){
+                        if(value){
+                            this.text = "Puerta abierta";
+                        } else{
+                            this.text = "Puerta cerrada"
+                        }
+                }
+            },
+            computed: {
+                    label() {
+                       return  this.open ? "Cerrar": "Abrir"
                     }
                 },
-                /*  v-once permite dejar estatico un texto en consola
-                    v-text permite variar el texto en consola
-                */
-                template: `
-                    <button v-on:click="increment">
-                        +
-                    </button>
-                    <button v-on:click="decrement">
-                        -
-                    </button><br>
-                {{counter}}`
-            }).mount("#app");
-            console.log(mv);
-        </script>
+            template: `
+                <div>{{text}}</div>
+                <button @click ="open = !open">{{label}}</button>
+            `
+        }).mount("#app")
+    </script>
 </body>
 </html>

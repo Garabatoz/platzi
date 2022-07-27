@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@3"></script>
+    <div id="app">
+        <img src="" alt=""/>
+    </div>
+        <script>
+            const mv = Vue.createApp({
+                data(){
+                    return{
+                        counter: 0,
+                    };
+                },
+                methods:{
+                    increment(){
+                        this.counter++;
+                    },
+                    decrement(){
+                        this.counter--;
+                    }
+                },
+                /*  v-once permite dejar estatico un texto en consola
+                    v-text permite variar el texto en consola
+                */
+                template: `
+                    <button v-on:click="increment">
+                        +
+                    </button>
+                    <button v-on:click="decrement">
+                        -
+                    </button><br>
+                {{counter}}`
+            }).mount("#app");
+            console.log(mv);
+        </script>
+</body>
+</html>

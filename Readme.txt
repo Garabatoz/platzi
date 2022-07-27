@@ -10,3 +10,8 @@ eventosDeUsuario
     v-on:keyup: Se utiliza para reconocer eventos cada que se presionan teclas.
     v-on:submit: Sirve para enviar información o para cancelar 
     event.preventDefault(): Sirve para evitar refrescar el navegador
+
+
+watchers
+    - Los watchers nos permiten escuchar el cambio en algun dato y comenzar a hacer algun proceso con el resultado
+    
